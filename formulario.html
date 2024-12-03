@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/escuela/css/misestilos.css">
+    <title>Control Escolar</title>
+</head>
+
+<body>
+    <form name='FormAlmnos' method='post' enctype="multipart/form-data" action='/escuela/php/registro.php'>
+        <section class="form-register">
+            <h4>
+                <center>Registro de Alumnos</center>
+            </h4>
+            <input class="controls" type="text" name="Control" id="claves" placeholder="Ingrese el Número de control"
+                size='10' maxlength='10' required>
+
+            <input class="controls" type="text" name="Nombre" id="nombres" placeholder="Ingrese el Nombre del Alumno" size='60'
+                maxlength='60' required>
+
+
+            <select class="controls" name='Especialidad' id="especialidades" required>
+                <option selected disabled>SELECCIONE UNA ESPECIALIDAD</option>
+                <option>INGENIERIA EN SISTEMAS COMPUTACIONALES</option>
+                <option>INGENIERIA INFORMÁTICA</option>
+                <option>INGENIERIA ELÉCTRICA</option>
+                <option>INGENIERIA MECÁNICA</option>
+                <option>INGENIERIA EN MECATRÓNICA</option>
+                <option>INGENIERIA CIVIL</option>
+                <option>INGENIERIA INDUSTRIAL</option>
+                <option>INGENIERIA EN GESTIÓN EMPRESARIAL</option>
+                <option>ARQUITECTURA</option>
+                <option>CONTADOR PÚBLICO</option>
+                    </select>
+
+            <input class="controls" type="tel" name="Telefono" id="telefonos" placeholder="Télefono de Contacto del Alumno"
+                size='10' minlength="10" maxlength='10' required>
+
+            <input class="controls" type="date" name="Fecha" id="fechas"
+                placeholder="Ingrese la Fecha de Registro" required>
+
+            <center>
+                <input class="botons" type='submit' name='Registrar' value='Registrar'>
+                <button class="botons" type="submit" name="Actualizar"> Actualizar </button>
+                <input class="botons" type='reset'  value='Limpiar'>
+            </center>
+
+        </section>
+    </form>
+
+</body>
+
+</html>

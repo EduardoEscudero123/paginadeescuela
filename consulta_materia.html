@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/escuela/css/misestilos.css">
+    <title>Consulta</title>
+</head>
+
+<body>
+    <form name='FormAlumnos' method='post' enctype="multipart/form-data" action="/escuela/php/registro_materia.php">
+        <section class="form-register">
+            <h4>
+                <center>Consulta de Materias</center>
+            </h4>
+            <input class="controls" type="text" name="Id_materia" id="consul" placeholder="Ingresa ID de la Materia"><br><br>
+
+            <center>
+                <a class="botons"  href="/escuela/php/tabla_materia.php"> Ver tabla </a><br>
+
+                <button class="botons" type="submit" name="Eliminar"> Eliminar </button>
+
+                <a class="botons"  href="/escuela/formulario_materia.html"> Nuevo/Update </a>
+            </center>
+        </section>            
+    </form>
+
+</body>
+
+</html>

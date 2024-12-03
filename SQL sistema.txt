@@ -1,0 +1,85 @@
+DROP DATABASE IF EXISTS  escuela;
+CREATE DATABASE escuela;
+use escuela;
+
+
+CREATE TABLE alumnos(
+control int(10) NOT NULL PRIMARY KEY,
+nombre varchar(60) NOT NULL,
+especialidad varchar(60) NOT NULL,
+telefono bigint(10) NOT NULL,
+fecha date NOT NULL
+);
+
+INSERT INTO alumnos VALUES
+('18190488', 'Hector Manuel Lopez Perez', 'INGENIERIA EN SISTEMAS COMPUTACIONALES', '9711288363', '1999-02-22'),
+('18190611', 'Elias Ramirez Lugo', 'INGENIERIA EN SISTEMAS COMPUTACIONALES', '5548445777', '1999-02-10'),
+('18190494', 'Jovany Gonzales Jacinto', 'INGENIERIA EN SISTEMAS COMPUTACIONALES', '9711414509', '1999-09-30'),
+('18190515', 'Jared Ricardo Lopez Sanchez', 'INGENIERIA EN SISTEMAS COMPUTACIONALES', '9723456787', '1999-09-06');
+
+
+CREATE TABLE maestros(
+control_maestro int NOT NULL PRIMARY KEY,
+nombre varchar(60) NOT NULL
+);
+
+INSERT INTO maestros VALUES
+('01020304', 'Gaston Dehesa Valencia'),
+('01020333', 'Sayonara Orozco Alvares'),
+('01020356', 'Juvenal Rasgado Sanchez'),
+('01020389', 'Maranto Iglecias');
+
+
+CREATE TABLE materias(
+    id_materia int NOT NULL PRIMARY KEY,
+    nombre varchar(60) NOT NULL
+);
+
+INSERT INTO materias VALUES
+('00000001', 'Programación Web'),
+('00000002', 'Programación Orientada a Objetos'),
+('00000003', 'Sistemas Programables'),
+('00000004', 'Ingeniería de software');
+
+
+CREATE TABLE clase(
+    id_clase int not null primary key,
+    control_maestro int(10) NOT NULL,
+    id_materia int NOT NULL,
+    foreign key (control_maestro) references maestros(control_maestro),
+    foreign key (id_materia) references materias(id_materia)
+);
+
+INSERT INTO clase VALUES
+('11000001', '01020304', '00000001'),
+('11000002', '01020333', '00000002'),
+('11000003', '01020356', '00000003'),
+('11000004', '01020389', '0000004');
+
+
+CREATE TABLE notas_alumnos_materias(
+    id bigint unsigned not null primary key,
+    control int NOT NULL,
+    id_clase int not null,
+    calificacion decimal(9,2) not null,
+    foreign key (control) references alumnos(control),
+    foreign key (id_clase) references clase(id_clase)
+);
+
+INSERT INTO notas_alumnos_materias VALUES
+('10000001', '18190488', '11000001', '100'),
+('10000002', '18190488', '11000002', '100'),
+('10000003', '18190488', '11000003', '100'),
+('10000004', '18190488', '11000004', '100');
+
+
+CREATE TABLE login(
+user varchar(60) NOT NULL,
+contra varchar(255) NOT NULL
+);
+
+INSERT INTO login VALUES
+('chiang', '$2y$10$DYesBCtw3jgPLEWKKLa5F.t9p7OnagWz1roPxNioDsTIa51GeIZTq'),
+('javier', '$2y$10$eH2JYuxsXqbaZ/oRvhj2gu8mRpYO1H6DfSX7MDlJhged85JlmbzUG'),
+('Gaston', '$2y$10$5IE2sd/V8HHmxEnEYJep9ej1irM507QGC74yqD47RqAuDSNox6/Bi'),
+('noe', '$2y$10$85rpDcfCFk40M80Br7/fyOuxghGEuqMdkzYtTiApjQm/VA30ph1lq');
